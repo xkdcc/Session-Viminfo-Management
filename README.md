@@ -61,7 +61,7 @@ As following:
 
 Then you type a legal number in range(0,1), it will load the specific workspace files. Also you can type 'Q' or 'q' to do nothing with workspace files. If you give an exception, you will be required to input again. 
 
-There is a little compatible problem in some tty console. Please read "Known Issues" in this Readme.md for more details.
+There is a little compatible problem in some tty console. Please read "Limitation and Known issues" section in this Readme.md for more details.
 
 ###Leaving Vim
 **Example 1:**
@@ -157,7 +157,7 @@ Will load my.session and my.viminfo in current folder.
 **Result:**<br>
 Will load my.session and my.viminfo in /home/myproject folder if existed.
 
-You'd better not to run :Loadws in same Vim twice. Please read "Known Issues" in this Readme.md for more details.
+You'd better not to run :Loadws in same Vim twice. Please read "Limitation and Known issues" section in this Readme.md for more details.
 
 ##Options
 ###wsOverwrite
@@ -178,7 +178,7 @@ It will said:
 **IT RECOMMENDED STRONGLY YOU KEEP IT DEFAULT AS 1.**
 **BECAUSE IF IT'S 0, WHEN YOU EXIT VIM, IT WON'T SAVE YOUR WORKSPACE FILES AUTOMATICALLY.**
 
-##Known issues
+##Limitation and Known issues
 * Windows is not a target of this plugin.
   I think you would experience some problmes if you want to use this plugin on Windows Vim.
 * There is compatible problem when work with autochdir option. Recommend to remove autochdir option from your ~/.vimrc.
