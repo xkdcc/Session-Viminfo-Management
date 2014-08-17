@@ -7,8 +7,14 @@ Typically, you can save your Vim session and viminfo files in one command and lo
 Even better, it can automatically load/save vim session and viminfo files when entering vim and leaving vim environment.
 That are very useful if you want Vim to quickly swith between different projects, automatically loading the files you were last working on in that project, and enable you to continue where you left off. 
 
-##Terminology
+##Terminology and Default Values
 **Workspace files:** I will shortly call vim session and viminfo files as "Workspace files" in this manual.
+**Default Values:**
+  * Default name for workspace files is: 
+      workspace.session 
+      workspace.viminfo
+  * Default saving path: 
+      vim current path (Type Vim Ex command getcwd() to get it)
 
 ##Installation
 Install to ~/.vim/plugin/session-viminfo-manage.vim and ~/.vim/doc/session-viminfo-manage.txt. 
@@ -74,13 +80,6 @@ This plugin will automatically save session and viminfo files to the last worksp
 
 Save vim session and viminfo files when you type Ex command :Savews with proper arguments.
 Particularly, if option wsOverwrite is 1(This is default value), when you exit from Vim, this plugin will save session and viminfo files to your last saved/loaded workspace files automatically.
-
-**Default Values:**
-  * Default name for workspace files is: 
-      workspace.session 
-      workspace.viminfo
-  * Default saving path: 
-      vim current path (Type Vim Ex command getcwd() to get it)
 
 **Example 1:**
 ```
