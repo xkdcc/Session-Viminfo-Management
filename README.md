@@ -9,6 +9,7 @@ That are very useful if you want Vim to quickly swith between different projects
 
 ##Terminology and Default Values
 **Workspace files:** I will shortly call vim session and viminfo files as "Workspace files" in this manual.
+**workspace:** All prompt messages in Vim prefixed with "workspace:" are from this Session-Viminfo-Management plugin.
 **Default Values:**
   * Default name for workspace files is: 
       workspace.session 
