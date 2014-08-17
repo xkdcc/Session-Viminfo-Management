@@ -29,6 +29,8 @@ Normally to generate documentation, Vim expects you to run :helptags on each dir
 
 ##Automation
 
+This plugin provides automation ability when launching Vim and leaving Vim.
+
 ###Launching Vim
 
 When launching Vim, this plugin will detect current path and load default workspace files(workspace.session and workspace.viminfo) if exist. 
@@ -78,6 +80,9 @@ This plugin will automatically save session and viminfo files to the last worksp
 * new.viminfo
 
 ##Ex Commands
+
+This plugin provide two Ex commands: **Savews**, **Loadws**.
+
 ###Savews
 
 Save vim session and viminfo files when you type Ex command :Savews with proper arguments.
@@ -161,6 +166,9 @@ Will load my.session and my.viminfo in /home/myproject folder if existed.
 You'd better not to run :Loadws in same Vim twice. Please read "Limitation and Known issues" section in this Readme.md for more details.
 
 ##Options
+
+There is one global option you can use: **wsOverwrite**.
+
 ###wsOverwrite
 **Value:** 0 or 1.<br>
 **Default:** 1.
