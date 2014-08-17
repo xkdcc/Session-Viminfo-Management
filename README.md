@@ -18,11 +18,12 @@ That are very useful if you want Vim to quickly swith between different projects
       vim current path (Type Vim Ex command getcwd() to get it)
 
 ##Installation
-Install to ~/.vim/plugin/session-viminfo-manage.vim and ~/.vim/doc/session-viminfo-manage.txt. 
-Or copy and paste:
+Download zip ball and copy files to ~/.vim/plugin/session-viminfo-manage.vim and ~/.vim/doc/session-viminfo-manage.txt. Or copy and paste:
 ```
 cd ~/.vim
 git clone https://github.com/xkdcc/Session-Viminfo-Management.git 
+mv Session-Viminfo-Management/plugin/* ~/.vim/plugin/ && mv Session-Viminfo-Management/doc/* ~/.vim/doc/
+rm -fr Session-Viminfo-Management/
 ```
 Normally to generate documentation, Vim expects you to run :helptags on each directory with documentation (e.g., :helptags ~/.vim/doc). 
 
