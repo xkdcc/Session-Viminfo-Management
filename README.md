@@ -118,9 +118,9 @@ You will get my.session and my.viminfo in /home/myproject folder if /home/myproj
 Please see |'wsOverwrite'| for more details about overwrite behavior.
 
 **Two point please keep in mind when using Savews:**
-* You must have suffix ".ws", if you want to specify name for session and viminfo files, like example 3 and example 4. 
+* You must have suffix **.ws**, if you want to specify name for session and viminfo files, like example 3 and example 4. 
   Otherwise, they will have default name, workspace.session and workspace.viminfo.
-* Please remember to use :qwa to quit Vim if you want to reopen all windows/tabs you're editing.<br>
+* Please remember to use **:qwa** to quit Vim if you want to reopen all windows/tabs you're editing.<br>
   The reason is that Savews command will save workspace files automatically when you exit Vim. So if you have opened many windows/tabs, but closed them one by one, there would be only one window is openning just before you exit Vim, workspace plugin will only can remember the last window and just reopen it for you when you enter Vim next time by loading your workspace files.
 
 ###Loadws
