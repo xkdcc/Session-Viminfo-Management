@@ -83,7 +83,7 @@ This plugin will automatically save session and viminfo files to the last worksp
 * new.viminfo
 
 As following illustration:
-![vim05-automation_leaving_new.ws.png](http://brant-public.qiniudn.com/vim05-automation_leaving_new.ws.png)
+![vim03-automation_leaving_new.ws.png](http://brant-public.qiniudn.com/vim03-automation_leaving_new.ws.png)
 
 ##Ex Commands
 
@@ -200,7 +200,7 @@ It will said:
   For my experiences, if enable autochdir option in Vim, users will mess up themselves when trying to provide relative pathes of Vim session and viminfo files. It seems it can't have impact if you provide absolute path for Vim session and viminfo files.
 * There is a little compatible problem in some tty console.
   In some tty console, when launching Vim and this plugin prompt a workspace list for your choice, after you input your choice, it will echo all message one time. Anyway, the function still works.As following illustration:
-![vim03-automatino-luanching-dup-echo](http://brant-public.qiniudn.com/vim03-automation_lauching_dup_echo.png)
+![vim04-automatino-luanching-dup-echo](http://brant-public.qiniudn.com/vim04-automation_lauching_dup_echo.png)
 * You'd better not to run :Loadws in same Vim twice.
   If you once run Loadws to load your workspace files, then run Loadws to reload them again in the same Vim, it will not close all openning windows and tabs. In other words, you may see double windows have been opened for the same file.
 
