@@ -44,7 +44,9 @@ If you're at /home/test, there are:
 * test.session
 * test.viminfo
 
-When you launch vim, it will load workspace.session and workspace.viminfo with prompt message by default.
+When you launch vim, it will load workspace.session and workspace.viminfo with prompt message by default. As following illustration:
+![vim01-automation-launching.png](http://brant-public.qiniudn.com/vim01-automation_lauching.png)
+
 
 **Example 2:**<br>
 If you're at /home/test, there are: 
@@ -62,7 +64,8 @@ As following:
   Your input(q to exit this function of workspace plugin):
 ```
 
-Then you type a legal number in range(0,1), it will load the specific workspace files. Also you can type 'Q' or 'q' to do nothing with workspace files. If you give an exception, you will be required to input again. 
+Then you type a legal number in range(0,1), it will load the specific workspace files. Also you can type 'Q' or 'q' to do nothing with workspace files. If you give an exception, you will be required to input again. As following illustration:
+![vim02-automation-launching.png](http://brant-public.qiniudn.com/vim02-automation_lauching_dup_echo_disappear.png)
 
 There is a little compatible problem in some tty console. Please read "Limitation and Known issues" section in this Readme.md for more details.
 
@@ -78,6 +81,9 @@ There is a little compatible problem in some tty console. Please read "Limitatio
 This plugin will automatically save session and viminfo files to the last workspace files
 * new.session
 * new.viminfo
+
+As following illustration:
+![vim05-automation_leaving_new.ws.png](http://brant-public.qiniudn.com/vim05-automation_leaving_new.ws.png)
 
 ##Ex Commands
 
@@ -193,7 +199,8 @@ It will said:
 * There is compatible problem when work with autochdir option. Recommend to remove autochdir option from your ~/.vimrc.
   For my experiences, if enable autochdir option in Vim, users will mess up themselves when trying to provide relative pathes of Vim session and viminfo files. It seems it can't have impact if you provide absolute path for Vim session and viminfo files.
 * There is a little compatible problem in some tty console.
-  In some tty console, when launching Vim and this plugin prompt a workspace list for your choice, after you input your choice, it will echo all message one time. Anyway, the function still works.
+  In some tty console, when launching Vim and this plugin prompt a workspace list for your choice, after you input your choice, it will echo all message one time. Anyway, the function still works.As following illustration:
+![vim03-automatino-luanching-dup-echo](http://brant-public.qiniudn.com/vim03-automation_lauching_dup_echo.png)
 * You'd better not to run :Loadws in same Vim twice.
   If you once run Loadws to load your workspace files, then run Loadws to reload them again in the same Vim, it will not close all openning windows and tabs. In other words, you may see double windows have been opened for the same file.
 
