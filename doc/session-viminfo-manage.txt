@@ -10,14 +10,17 @@ CONTENTS                                                  *workspace-contents*
     2. Functionality...........................|workspaceFunctionality|
       2.1 Save Workspace(vim session and viminfo)........|workspaceSaveWorkspace|
       2.2 Read Workspace(vim session and viminfo)........|workspaceReadWorkspace|
-    3. Commands................................|workspaceCommands|
-    4. Options.................................|workspaceOptions|
-      4.1 Options summary......................|workspaceOptionsSummary|
-      4.2 Options details......................|workspaceOptionsDetails|
-    5. TODO list...............................|workspaceTodo|
-    6. Maintainer..............................|workspaceMaintainer|
-    7. Credits.................................|workspaceCredits|
-    8. History.................................|workspaceHistory|
+    3. Automation..............................|workspaceAutomation|
+    4. Commands................................|workspaceCommands|
+    5. Options.................................|workspaceOptions|
+      5.1 Options summary......................|workspaceOptionsSummary|
+      5.2 Options details......................|workspaceOptionsDetails|
+    6. Limitation and Known Issues.............|workspaceLimitation|
+    7. TODO list...............................|workspaceTodo|
+    8. Maintainer..............................|workspaceMaintainer|
+    9. Credits.................................|workspaceCredits|
+    10. License.................................|workspaceLicense|
+    11. History................................|workspaceHistory|
 
 ==============================================================================
  1. INTRODUCTION                                              *workspaceIntro*
@@ -43,13 +46,70 @@ this manual.
  2. FUNCTIONALITY                                     *workspaceFunctionality*
 
 ------------------------------------------------------------------------------
-2.1 Save Workspace(vim session and viminfo)       *workspaceSaveWorkspaceCore*
+ 2.1 SAVE WORKSPACE                               *workspaceSaveWorkspaceCore*
 
 ------------------------------------------------------------------------------
-2.2 Load Workspace(vim session and viminfo)       *workspaceLoadWorkspaceCore*
+ 2.2 LOAD WORKSPACE                               *workspaceLoadWorkspaceCore*
 
 ==============================================================================
-3. COMMANDS                                                *workspaceCommands*
+ 3. AUTOMATION                                            *workspaceAutomation*
+
+------------------------------------------------------------------------------
+LAUNCHING VIM~ 
+* When launching Vim, this plugin will detect current path and load default 
+  workspace files(workspace.session and workspace.viminfo) if exist. 
+* If no default workspace files found, it will check whether there are
+  files having suffix ".session" and ".viminfo" in pair. 
+  If yes, it will prompt a list for user selection if there are more than one 
+  pair.
+
+Example 1:
+If you're at /home/test, there are: >
+  workspace.session
+  workspace.viminfo
+  test.session
+  test.viminfo
+<
+When you launch vim, it will load workspace.session and workspace.viminfo with 
+prompt message by default.
+
+Example 2:
+If you're at /home/test, there are: >
+  test01.session
+  test01.viminfo
+  test02.session
+  test02.viminfo
+<
+When you launch vim, it will list all workspace files for your choice.
+As following: >
+  workspace: Please input the expected workspace index you want to load:
+    [0] /home/test/test01
+    [1] /home/test/test02
+  Your input(q to exit this function of workspace plugin):
+<
+Then you type a legal number in range(0,1), it will load the specific
+workspace files.
+Also you can type 'Q' or 'q' to do nothing with workspace files.
+If you give an exception, you will be required to input again. 
+
+There is a little compatible problem in some tty console.
+In some tty console, if you input something with a <CR>, it will echo all
+message one time. Anyway, the function still works.   
+
+LEAVING VIM~
+Example 1: >
+  : Savews my.ws       
+  : Loadws wow.ws
+  : Savews new.ws
+  : qa
+<
+Result: This plugin will automatically save session and viminfo files to last 
+        workspace files: 
+          new.session
+          new.viminfo
+        
+==============================================================================
+ 4. COMMANDS                                               *workspaceCommands*
 
 ------------------------------------------------------------------------------
 :Savews                                                              *:Savews*
@@ -60,7 +120,7 @@ Particularly, if option wsOverwrite is 1(This is default value), when you
 exit from Vim, this plugin will save session and viminfo files to your last 
 saved/loaded workspace files automatically.
 
-Default behaviors:
+Default Values:
   * Default name for workspace files is: 
       workspace.session 
       workspace.viminfo
@@ -95,17 +155,6 @@ Example 4: >
 Result: You will get my.session and my.viminfo in /home/myproject folder 
         if /home/myproject existed.
         Please see |'wsOverwrite'| for more details about overwrite behavior.
-
-Example 5: >
-  : Savews my.ws
-  : Savews new.ws
-  : qa
-<
-Result: This plugin will automatically save session and viminfo files to 
-          new.session
-          new.viminfo
-        We're using Savews in this example, it does same if you're using Loadws 
-        or mix them.
 
 Two point please keep in mind when using Savews:
 * You must have suffix ".ws", if you want to specify name for session and  
@@ -147,63 +196,48 @@ Other examples (I ignored :Savews in following Ex commands):
 ------------------------------------------------------------------------------
 :Loadws                                                              *:Loadws*
 
-Read vim session and viminfo files.
+Load vim session and viminfo files.
 
-* When launching Vim, this plugin will detect current path and load default 
-  workspace files(workspace.session and workspace.viminfo) if exist. 
-* If no default workspace files found, it will check whether there are
-  files having suffix ".session" and ".viminfo" in pair. 
-  If yes, it will prompt a list for user selection if there are more than one 
-  pair.
-
-Example 1:
-If you're at /home/test, there are: >
-  workspace.session
-  workspace.viminfo
-  test.session
-  test.viminfo
+Example 1: >
+  :Lavews    
 <
-When you launch vim, it will load workspace.session and workspace.viminfo with 
-prompt message by default.
+Result: Will load workspace.session and workspace.viminfo in current folder 
+        if existed. 
 
-Example 2:
-If you're at /home/test, there are: >
-  test01.session
-  test01.viminfo
-  test02.session
-  test02.viminfo
+Example 2: >
+  :Lavews /home/myproject 
 <
-When you launch vim, it will list all workspace files for your choice.
-As following: >
-  workspace: Please input the expected workspace index you want to load:
-    [0] /home/test/test01
-    [1] /home/test/test02
-  Your input(q to exit this function of workspace plugin):
+Result: Will load:
+          /home/myproject/workspace.session
+          /home/myproject/workspace.viminfo
+        Please make sure workspace files existed beforehand.
+
+Example 3: >
+  :Lavews my.ws
 <
-Then you type a legal number in range(0,1), it will load the specific
-workspace files.
-Also you can type 'Q' or 'q' to do nothing with workspace files.
-If you give an exception, you will be required to input again. 
+Result: Load my.session and my.viminfo in current folder.
 
-There is a little compatible problem in some tty console.
-In some tty console, if you input something with a <CR>, it will echo all
-message one time. Anyway, the function still works.
+Example 4: >
+  :Lavews /home/myproject/my.ws
+<
+Result: Will load my.session and my.viminfo from /home/myproject folder 
+        if workspace files existed.
 
-And one situation I want to mention here:
+Just one situation I want to mention here:
 If you once run Loadws to load your workspace files, then you run Loadws to 
 reload then again, it will not close all openning windows and tabs. 
 In other words, you may see double windows have been opened for the same file.
 
 ==============================================================================
-4. Options                                                  *workspaceOptions*
+ 5. OPTIONS                                                 *workspaceOptions*
 
 ------------------------------------------------------------------------------
-4.1 Options summary                                  *workspaceOptionsSummary*
+ 5.1 Options summary                                 *workspaceOptionsSummary*
 
 |'wsOverwrite'|                  Overwrite existed vim session and viminfo 
 
 ------------------------------------------------------------------------------
-4.3 Options details                                  *workspaceOptionsDetails*
+ 5.2 Options details                                 *workspaceOptionsDetails*
 
 To enable any of the below options you should put the given line in your
 ~/.vimrc
@@ -230,7 +264,28 @@ BECAUSE IF IT'S 0, WHEN YOU EXIT VIM, IT WON'T SAVE YOUR WORKSPACE FILES~
 AUTOMATICALLY.~
 
 ==============================================================================
-5. Change Log and TODO list                                    *workspaceTodo*
+ 6. LIMITATION AND KNOWN ISSUES                          *workspaceLimitation*
+ 
+* Windows is not a target of this plugin.
+  I think you would experience some problmes if you want to use this plugin on 
+  Windows Vim.
+* There is compatible problem when work with autochdir option. Recommend to 
+  remove autochdir option from your ~/.vimrc.
+  For my experiences, if enable autochdir option in Vim, users will mess up 
+  themselves when trying to provide relative pathes of Vim session and viminfo 
+  files. It seems it can't have impact if you provide absolute path for Vim 
+  session and viminfo files.
+* There is a little compatible problem in some tty console.
+  In some tty console, when launching Vim and this plugin prompt a workspace 
+  list for your choice, after you input your choice, it will echo all message 
+  one time. Anyway, the function still works.
+* You'd better not to run :Loadws in same Vim twice.
+  If you once run Loadws to load your workspace files, then run Loadws to reload
+  them again in the same Vim, it will not close all openning windows and tabs. 
+  In other words, you may see double windows have been opened for the same file.
+
+==============================================================================
+ 7. CHANGE LOG AND TODO LIST                                   *workspaceTodo*
 
 Below are my change logs with development troubleshooting trace and TODO list.
 
@@ -292,7 +347,7 @@ Below are my change logs with development troubleshooting trace and TODO list.
   viminfo files when VimLeave.
 
 ==============================================================================
-6. MAINTAINER                                            *workspaceMaintainer*
+ 8. MAINTAINER                                           *workspaceMaintainer*
 
 Hi there! My name is Brant Chen. and I can be reached at:
     mailto:brantchen2008@gmail.com
@@ -305,10 +360,17 @@ Feel free to send me any suggestions and/or comments about this plugin, I'll
 be very pleased to read them.
 
 ==============================================================================
-7. CREDITS                                                  *workspaceCredits*
+ 9. CREDITS                                                 *workspaceCredits*
 
 ==============================================================================
-8. HISTORY                                                  *workspaceHistory*
+ 10. LICENSE                                                *workspaceLicense*
+
+This software is licensed under the MIT License:
+http://en.wikipedia.org/wiki/MIT_License.
+Copyright 2014 Brant Chen (brantchen2008@gmail.com and xkdcc@163.com).
+
+==============================================================================
+ 11. HISTORY                                                *workspaceHistory*
 
   Version      Date      Release notes                                       ~
 |---------|------------|-----------------------------------------------------|
