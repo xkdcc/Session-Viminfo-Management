@@ -350,7 +350,7 @@ Below are my change logs with development troubleshooting trace and TODO list.
  8. MAINTAINER                                           *workspaceMaintainer*
 
 Hi there! My name is Brant Chen. and I can be reached at:
-    mailto:brantchen2008@gmail.com
+    mailto:brantchen2008@yahoo.com
 You can access the source code from my github portal:
     http://github.com/xkdcc
 My personal blog: 
@@ -367,7 +367,7 @@ be very pleased to read them.
 
 This software is licensed under the MIT License:
 http://en.wikipedia.org/wiki/MIT_License.
-Copyright 2014 Brant Chen (brantchen2008@gmail.com and xkdcc@163.com).
+Copyright 2014 Brant Chen (brantchen2008@yahoo.com).
 
 ==============================================================================
  11. HISTORY                                                *workspaceHistory*

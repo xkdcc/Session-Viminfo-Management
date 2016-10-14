@@ -206,7 +206,7 @@ It will said:
 
 ##License
 This software is licensed under the [MIT License](http://en.wikipedia.org/wiki/MIT_License).
-Copyright 2014 Brant Chen (brantchen2008@gmail.com and xkdcc@163.com).
+Copyright 2014 Brant Chen (brantchen2008@yahoo.com).
 
 ###Welcome to Brant Blog
 <a href="http://www.brantchen.com">![Brant's Blog](http://brant-public.qiniudn.com/site-Logo215x100-Brant%20Blog.png)</a>
