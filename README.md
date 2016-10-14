@@ -195,7 +195,7 @@ It will said:
 
 ##Limitation and Known issues
 * Windows is not a target of this plugin.
-  I think you would experience some problmes if you want to use this plugin on Windows Vim.
+  You might experience some problmes if you want to use this plugin on Windows Vim.
 * There is compatible problem when work with autochdir option. Recommend to remove autochdir option from your ~/.vimrc.
   For my experiences, if enable autochdir option in Vim, users will mess up themselves when trying to provide relative pathes of Vim session and viminfo files. It seems it can't have impact if you provide absolute path for Vim session and viminfo files.
 * There is a little compatible problem in some tty console.

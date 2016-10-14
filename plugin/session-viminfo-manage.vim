@@ -1,3 +1,5 @@
+"===============================================================================
+"
 " File:        plugin/workspace.vim
 " Version:     1.0
 " Modified:    2014-08-17
@@ -5,6 +7,7 @@
 "              viminfo files automatically. 
 " Maintainer:  Brant Chen <brantchen2008@gmail.com and xkdcc@163.com>
 " Manual:      Read ":help workspaceIntro".
+"
 " ============================================================================
 
 " Initialization: {{{
@@ -516,7 +519,7 @@ augroup workspace
   au!
 
   " Note: 
-  " I found if we put call func in augroup, then it can't print complet message
+  " I found if we put call func in augroup, then it can't print complete message
   " We can only see last sentense.
   " So I move call PromptExistedWorkspaceName() to InitCheck()
   " autocmd VimEnter *
