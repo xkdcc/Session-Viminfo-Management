@@ -8,9 +8,9 @@ Even better, it can automatically load/save vim session and viminfo files when e
 That are very useful if you want Vim to quickly swith between different projects, automatically loading the files you were last working on in that project, and enable you to continue where you left off. 
 
 ## Terminology and Default Values
-** Workspace files: ** I will shortly call vim session and viminfo files as "Workspace files" in this manual.
-** workspace: ** All prompt messages in Vim prefixed with "workspace:" are from this Session-Viminfo-Management plugin.
-** Default Values:**
+**Workspace files:** I will shortly call vim session and viminfo files as "Workspace files" in this manual.
+**workspace:** All prompt messages in Vim prefixed with "workspace:" are from this Session-Viminfo-Management plugin.
+**Default Values:**
   * Default name for workspace files is: 
       workspace.session 
       workspace.viminfo
@@ -37,7 +37,7 @@ When launching Vim, this plugin will detect current path and load default worksp
 If no default workspace files found, it will check whether there are files having suffix ".session" and ".viminfo" in pair. 
 If yes, it will prompt a list for user selection if there are more than one pair.
 
-** Example 1: **<br>
+**Example 1:**<br>
 If you're at /home/test, there are: 
 * workspace.session
 * workspace.viminfo
@@ -48,7 +48,7 @@ When you launch vim, it will load workspace.session and workspace.viminfo with p
 ![vim01-automation-launching.png](http://brant-public.qiniudn.com/vim01-automation_lauching.png)
 
 
-** Example 2: **<br>
+**Example 2:**<br>
 If you're at /home/test, there are: 
 * test01.session
 * test01.viminfo
@@ -70,14 +70,14 @@ Then you type a legal number in range(0,1), it will load the specific workspace 
 There is a little compatible problem in some tty console. Please read "Limitation and Known issues" section in this Readme.md for more details.
 
 ### Leaving Vim
-** Example 1: **
+**Example 1:**
 ```
   : Savews my.ws
   : Loadws wow.ws
   : Savews new.ws
   : qa
 ```
-** Result:** <br>
+**Result:**<br>
 This plugin will automatically save session and viminfo files to the last workspace files
 * new.session
 * new.viminfo
@@ -94,42 +94,42 @@ This plugin provide two Ex commands: **Savews**, **Loadws**.
 Save vim session and viminfo files when you type Ex command :Savews with proper arguments.
 Particularly, if option wsOverwrite is 1(This is default value), when you exit from Vim, this plugin will save session and viminfo files to your last saved/loaded workspace files automatically.
 
-** Example 1: **
+**Example 1:**
 ```
   :Savews    
 ```
-** Result: ** <br>
+**Result:** <br>
 Will create workspace.session and workspace.viminfo in current folder, if they didnot existed beforehand.<br>
 Please see |'wsOverwrite'| for more details about overwrite behavior.
 
-** Example 2: **
+**Example 2:**
 ```
   :Savews /home/myproject 
 ```
-** Result: ** <br>
+**Result:** <br>
 Will create:
 * /home/myproject/workspace.session
 * /home/myproject/workspace.viminfo
 Please make sure folder /home/myproject existed beforehand.<br>
 Please see |'wsOverwrite'| for more details about overwrite behavior.
 
-** Example 3: **
+**Example 3:**
 ```
   :Savews my.ws
 ```
-** Result:** <br>
+**Result:** <br>
 Save to my.session and my.viminfo in current folder.<br>
 Please see |'wsOverwrite'| for more details about overwrite behavior.
 
-** Example 4: **
+**Example 4:**
 ```
   :Savews /home/myproject/my.ws
 ```
-** Result:** <br>
+**Result:** <br>
 You will get my.session and my.viminfo in /home/myproject folder if /home/myproject existed.<br>
 Please see |'wsOverwrite'| for more details about overwrite behavior.
 
-** Two point please keep in mind when using Savews: **
+**Two point please keep in mind when using Savews:**
 * You must have suffix ** .ws **, if you want to specify name for session and viminfo files, like example 3 and example 4. 
   Otherwise, they will have default name, workspace.session and workspace.viminfo.
 * Please remember to use **:qwa** to quit Vim if you want to reopen all windows/tabs you're editing.<br>
@@ -138,14 +138,14 @@ Please see |'wsOverwrite'| for more details about overwrite behavior.
 ### Loadws
 Load vim session and viminfo files.
 
-** Example 1: **
+**Example 1:**
 ```
   :Lavews    
 ```
-** Result: ** <br>
+**Result:** <br>
 Will load workspace.session and workspace.viminfo in current folder, if they existed beforehand.
 
-** Example 2: **
+**Example 2:**
 ```
   :Lavews /home/myproject 
 ```
