@@ -5,7 +5,7 @@
 " Modified:    2014-08-17
 " Description: This plugin provides commands to save and load vim session and 
 "              viminfo files automatically. 
-" Maintainer:  Brant Chen <brantchen2008@gmail.com and xkdcc@163.com>
+" Maintainer:  Brant Chen <brantchen2008@yahoo.com>
 " Manual:      Read ":help workspaceIntro".
 "
 " ============================================================================
