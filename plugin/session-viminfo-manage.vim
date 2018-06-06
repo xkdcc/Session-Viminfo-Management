@@ -42,12 +42,12 @@ function s:InitCheck()
   exec 'let s:AutochdirValue=&autochdir'
   if s:AutochdirValue == 1 
     echohl WarningMsg 
-    echom ''
+    echo "\n"
     echom 'workspace: Your vimrc has been set autochdir to on, it would cause unexpected results when using workspace plugin.' 
     echom 'workspace: I recommend you to turn it off.' 
     echom 'workspace: If you do not want to, I recommed you to refer to "Alternatives" in http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file'
     echom 'workspace: to set up a map as alternative for autochdir.'
-    echom ''
+    echo "\n"
     echohl Normal
 
     return 0
