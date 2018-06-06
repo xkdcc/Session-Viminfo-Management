@@ -44,7 +44,7 @@ function s:InitCheck()
     echohl WarningMsg 
     echom 'workspace: Your vimrc has been set autochdir to on, it would cause unexpected results when using workspace plugin.' 
     echom 'workspace: I recommend you to turn it off.' 
-    echom 'workspace: If you don't want to, I recommed you to refer to "Alternatives" in http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file'
+    echom 'workspace: If you do not want to, I recommed you to refer to "Alternatives" in http://vim.wikia.com/wiki/Set_working_directory_to_the_current_file'
     echom 'workspace: to set up a map as alternative for autochdir.'
     echohl Normal
 
